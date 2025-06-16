@@ -79,7 +79,7 @@ export default class HomePage {
       const isFavorite = await FavoriteDB.get(storyId);
       
       if (isFavorite) {
-        button.textContent = "★ Favoritku";
+        button.textContent = "Favoritku";
         button.classList.add('favorited');
       }
       
@@ -96,11 +96,11 @@ export default class HomePage {
         
         if (isFavorite) {
           await FavoriteDB.delete(storyId);
-          button.textContent = "☆ Favoritku";
+          button.textContent = "Favoritkan";
           button.classList.remove('favorited');
         } else {
           await FavoriteDB.put(story);
-          button.textContent = "★ Favoritku";
+          button.textContent = "Favoritku";
           button.classList.add('favorited');
         }
       });
@@ -134,7 +134,7 @@ export default class HomePage {
           <p class="story-description">${this._truncateText(story.description, 150)}</p>
           
           <div class="story-actions">
-            <button class="favorite-button" data-id="${story.id}">☆ Favoritku</button>
+            <button class="favorite-button" data-id="${story.id}">Favoritkan</button>
             <a href="#/detail/${story.id}" class="btn-view-detail">Detail</a>
           </div>
         </div>
